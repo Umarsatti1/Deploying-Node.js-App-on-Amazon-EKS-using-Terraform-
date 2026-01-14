@@ -97,7 +97,7 @@ kubectl apply -f service.yaml
 kubectl apply -f ingress.yaml
 ```
 
-# Verify
+### Verify
 ```bash
 kubectl get pods
 kubectl get pvc
