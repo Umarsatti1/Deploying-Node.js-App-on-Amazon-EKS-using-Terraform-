@@ -78,6 +78,32 @@ Kubernetes manifests deploy the application:
 
 Resource creation includes Pods, PVCs, PVs, Services, Ingress, and ALB.
 
+### Configure kubectl
+```bash
+aws eks update-kubeconfig --region us-west-1 --name umarsatti-eks-cluster
+```
+
+### Verification
+```bash
+kubectl get nodes -o wide
+kubectl get daemonsets -A
+```
+
+### Apply Kubernetes Manifests
+```bash
+kubectl apply -f storageclass.yaml
+kubectl apply -f statefulset.yaml
+kubectl apply -f service.yaml
+kubectl apply -f ingress.yaml
+```
+
+# Verify
+```bash
+kubectl get pods
+kubectl get pvc
+kubectl get ingress
+```
+
 ---
 
 ## Observability
@@ -108,4 +134,4 @@ terraform destroy -auto-approve
 ---
 
 ## Conclusion
-This project demonstrates end-to-end infrastructure automation and Kubernetes workload deployment on AWS using Terraform, EKS, and managed AWS services. It highlights best practices for networking, IAM, storage, ingress, and observability in a production-style Kubernetes environment.
+This project demonstrates end-to-end infrastructure automation and Kubernetes workload deployment on AWS using Terraform, EKS, and managed AWS services.
